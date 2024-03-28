@@ -1,0 +1,1 @@
+export { default as AreaTable } from "./dashboard/areaTable/AreaTable";
