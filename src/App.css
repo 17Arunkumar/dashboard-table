@@ -1,5 +1,5 @@
 body{
-    background-color: #242582;
+    /* background-color: #242582; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,6 @@ body{
   
 
   #total{
-    background:;
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;

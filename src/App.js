@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./admin.scss";
 import {Routes,Route} from "react-router-dom";
 import Integrate from "./Integrate";
 

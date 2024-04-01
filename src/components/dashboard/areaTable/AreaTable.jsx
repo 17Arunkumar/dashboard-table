@@ -9,7 +9,6 @@ const TABLE_HEADS = [
   "Customer name",
   "Status",
   "Amount",
-  "Action",
 ];
 
 // const TABLE_DATA = [
@@ -88,9 +87,9 @@ function Area({pro,getdata}){
                       </div>
                     </td>
                     <td>${pro.amount.toFixed(2)}</td>
-                    <td className="dt-cell-action">
+                    {/* <td className="dt-cell-action">
                       <AreaTableAction />
-                    </td>
+                    </td> */}
                   </tr>
     );
 }
