@@ -1,0 +1,15 @@
+.integrate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+  }
+
+.dash{
+    width: 1000px; 
+    height: 250px; 
+    padding: 10px; 
+    margin: 5px; 
+    font-size: 14px; 
+    box-sizing: border-box;
+  }
+  

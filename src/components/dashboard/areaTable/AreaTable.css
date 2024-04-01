@@ -17,7 +17,6 @@
     .data-table-diagram {
       border-radius: 6px;
       border: 1px solid var(--tbl-border-color) !important;
-      overflow-x: scroll;
   
       &::-webkit-scrollbar {
         height: 6px;
@@ -128,4 +127,9 @@
         opacity: 0.9;
       }
     }
+  }
+
+  .data{
+    height: 300px;
+    overflow: scroll;
   }

@@ -1,15 +1,13 @@
 import "./App.scss";
 import {Routes,Route} from "react-router-dom";
-import { Dashboard } from "./screen/ind1";
-
-
+import Integrate from "./Integrate";
 
 function App() {
 
   return (
     <>
         <Routes>
-          <Route path="/" element={<Dashboard/>}/>
+          <Route path="/" element={<Integrate/>}/>
         </Routes>
     </>
   );
