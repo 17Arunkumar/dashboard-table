@@ -3,6 +3,7 @@ import { Dashboard } from "./screen/ind1";
 import Weather from './Weather';
 import './integrate.css';
 import Comp from './weathercomponents';
+import DailyForecastWidget from './DailyForecast';
 
 function Integrate() {
   return (
@@ -13,6 +14,9 @@ function Integrate() {
       </div>
       <div>
         <Comp/>
+      </div>
+      <div>
+        <DailyForecastWidget/>
       </div>
       </div>
       <div className='dash'>
