@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function Weather() {
+function Weather({onSubmit}) {
     const [city, setCity] = useState('');
     const [currWeather, setCurrWeather] = useState(null);
     const [hourlyForecast, setHourlyForecast] = useState([]);
@@ -18,21 +18,21 @@ function Weather() {
 
     const displayHourlyForecast = (data) => {
         if (data && data.list) {
-            setHourlyForecast(data.list.slice(0,8));
+            setHourlyForecast(data.list.slice(0,4));
         }
     };
 
     const getWeather = (e) => {
         e.preventDefault();
-
         if (!city) {
             alert("Please enter a city name");
             return;
         }
 
-        const currWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+        const currWeatherUrl = `http://localhost:4000/weather/${city}`;
+        const forecastUrl = `http://localhost:4000/forecast/${city}`;
         console.log(currWeatherUrl);
+        console.log(forecastUrl);
         fetch(currWeatherUrl)
             .then(res => res.json())
             .then(data => displayWeather(data))
@@ -78,7 +78,7 @@ function Weather() {
                         <div key={item.dt}>
                             <img src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="HourImage" />
                             <div>
-                            <span>{new Date(item.dt * 1000).getHours()}:00</span>
+                            <div>{new Date(item.dt * 1000).getHours()}:00</div>
                             <span>{Math.round(item.main.temp - 273.15)}°C</span>
                             </div>
                         </div>

@@ -6,8 +6,8 @@ function DailyForecastWidget() {
     useEffect(() => {
         const fetchDailyForecast = async () => {
             try {
-                const API_KEY = 'e3c180e2c32b5c0a6202b0585947d578'; 
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=New York&appid=${API_KEY}`);
+                // const API_KEY = 'e3c180e2c32b5c0a6202b0585947d578'; 
+                const response = await fetch(`http://localhost:4000/forecast/chennai`);
                 const data = await response.json();
                 const filteredForecast = filterDailyForecast(data.list);
                 setDailyForecast(filteredForecast);
@@ -56,7 +56,7 @@ const styles = {
         padding: '20px',
         backgroundColor:'white',
         borderRadius: '10px',
-        width: '300px',
+        width: '310px',
         margin: 'auto',
         marginTop:'80px',
         boxSizing: 'border-box',

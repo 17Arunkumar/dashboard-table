@@ -1,12 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./weathercomponents.css";
 
 function Comp() {
+  const [weatherData, setWeatherData] = useState(null);
+
   useEffect(() => {
-    createProgressBar('temperatureChart', 70);
-    createProgressBar('precipitationChart', 40);
-    createProgressBar('humidityChart', 50);
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/weathercomp');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      console.log('Received weather data:', data); // Log the received data
+      setWeatherData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (weatherData) {
+      createProgressBar('temperatureChart', weatherData.temperature);
+      createProgressBar('precipitationChart', weatherData.precipitation);
+      createProgressBar('humidityChart', weatherData.humidity);
+    }
+  }, [weatherData]);
 
   const createProgressBar = (containerId, percentage) => {
     const container = document.getElementById(containerId);
@@ -18,7 +40,7 @@ function Comp() {
 
     const percentageText = document.createElement('div');
     percentageText.classList.add('percentage');
-    percentageText.textContent = `${percentage}%`;
+    percentageText.textContent = `${percentage}`;
 
     container.appendChild(fill);
     container.appendChild(percentageText);
@@ -43,7 +65,6 @@ function Comp() {
           </div>
         </div>
       </main>
-      
     </div>
   );
 }

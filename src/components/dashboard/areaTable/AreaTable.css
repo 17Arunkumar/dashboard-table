@@ -1,7 +1,7 @@
 .content-area-table {
     background: var(--secondary-color);
     border-radius: 5px;
-    box-shadow: var(---shadow1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);;
     padding: 12px 16px;
   
     @media (max-width: 768px) {
@@ -127,6 +127,8 @@
         opacity: 0.9;
       }
     }
+
+    border: 1px solid var(--tbl-border-color);
   }
 
   .data{
